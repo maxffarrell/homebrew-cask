@@ -1,11 +1,11 @@
 cask "paseo" do
-  arch arm: "-arm64"
+  arch arm: "arm64", intel: "x64"
 
-  version "0.1.33"
-  sha256 arm:   "fcff5924801b055f4d27128c3eb21554186ce4739f2cbae02479904fe96a09c4",
-         intel: "e87a44cc01406377e60e11d00348153335462ff0456450537c23a5e80fa38309"
+  version "0.1.36"
+  sha256 arm:   "5ab0605e79986d2f02195d14b379a7139fc4761a9e5f7364265fa0707726d834",
+         intel: "b5db16a6f3a053c937004b2cd47d884fb57ab2d492fc1552cd0d9b7b3f84aed0"
 
-  url "https://github.com/getpaseo/paseo/releases/download/v#{version}/Paseo-#{version}#{arch}.dmg",
+  url "https://github.com/getpaseo/paseo/releases/download/v#{version}/Paseo-#{version}-#{arch}.dmg",
       verified: "github.com/getpaseo/paseo/"
   name "Paseo"
   desc "Self-hosted daemon for AI coding agents"
@@ -19,7 +19,7 @@ cask "paseo" do
   depends_on macos: ">= :monterey"
 
   app "Paseo.app"
-  binary "#{appdir}/Paseo.app/Contents/MacOS/Paseo", target: "paseo"
+  binary "#{appdir}/Paseo.app/Contents/Resources/bin/paseo"
 
   zap trash: [
     "~/Library/Application Support/dev.paseo.desktop",
